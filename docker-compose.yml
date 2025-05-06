@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    image: ingestion-api:latest
+    container_name: ingestion-api
+    restart: always
+    depends_on:
+      - mongo
+    environment:
+      - DATABASE_HOST=mongo
+      - DATABASE_PORT=
+      - DATABASE_NAME=
+      - SOURCE1_URL=
+    ports:
+      - 3001:3001
+
+volumes:
+  mongo-data:
