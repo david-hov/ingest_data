@@ -126,6 +126,8 @@ Follow these steps to set up the project:
 2. Set env variables in .env file:
     ```sh
     DATABASE_HOST=
+    DATABASE_PORT=
+    DATABASE_NAME=
     SOURCE1_URL=
     ```
 Install the dependencies:
@@ -145,5 +147,7 @@ In `docker-compose.yml`, ensure that the environment variables are set for use i
 
 ```Dockerfile
 DATABASE_HOST=
+DATABASE_PORT=
+DATABASE_NAME=
 SOURCE1_URL=
 ```
